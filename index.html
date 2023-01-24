@@ -6,8 +6,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projet</title>
     <link rel="stylesheet" href="style.css" />
+
+    <script>
+      // availableProducts est l'ensemble des articles disponible à la vente
+      // Ils doivent être affichés dans la section, sous forme d'articles
+      const availableProducts = [
+        {
+          name: "Product 1",
+          description: "This is the first product",
+          price: 55,
+        },
+        {
+          name: "Product 2",
+          description: "This is the second product",
+          price: 25,
+        },
+        {
+          name: "Product 3",
+          description: "This is the third product",
+          price: 15,
+        },
+      ];
+      // cart est un tableau dynamique qui contient les éléments que l'on veut acheter
+      // L'ensemble de ces produits seront affiché dans le cart
+      let cart = [];
+    </script>
   </head>
+
   <body>
+    <nav>
+      <h1>Online Shop</h1>
+    </nav>
+
+    <div class="container boxed">
+      <main>
+        <header>
+          <h1>Our products</h1>
+        </header>
+        <section id="grilleArticle" class="boxed">
+          <article>
+            <div class="img"></div>
+            <h2>Article 1</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+          <article>
+            <div class="img"></div>
+            <h2>Article 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+          <article>
+            <div class="img"></div>
+            <h2>Article 3</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+          <article>
+            <div class="img"></div>
+            <h2>Article 4</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+          <article>
+            <div class="img"></div>
+            <h2>Article 5</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+          <article>
+            <div class="img"></div>
+            <h2>Article 6</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, eligendi ipsum. Vero laudantium a quibusdam.
+            </p>
+            <div class="addCart">
+              <span>170€</span> <button>acheter</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <aside class="boxed">
+        <h2>Cart</h2>
+        <ul id="cartDisplay">
+          <li>
+            <span>article 1</span>
+            <div class="img2"></div>
+            <div class="quantityContainer">
+              <button class="soustractBTN">-</button
+              ><input class="amountField" type="text" size="1" /><button
+                class="addBTN"
+              >
+                +
+              </button>
+            </div>
+          </li>
+          <li>Article 1</li>
+          <li>Article 1</li>
+          <li>Article 1</li>
+          <li>Article 1</li>
+          <li>Article 1</li>
+          <li>Article 1</li>
+        </ul>
+        <p>Total : 00€</p>
+      </aside>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>
