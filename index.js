@@ -1,5 +1,6 @@
 const shopContainer = document.getElementById("grilleArticle");
 const cartContainer = document.getElementById("cartDisplay");
+const cartPriceDisplay = document.getElementById("cartTotalPrice")
 
 const availableProducts = [
     {
@@ -76,11 +77,22 @@ function addProductToCart(productId) {
     displayCart();
 }
 
+function displayTotalAmount() {
+    let priceTotal = 0;
+    for (let i = 0; i < cart.length; i++) {
+        priceTotal = priceTotal + (cart[i].price * cart[i].quantity);
+    }
+    cartPriceDisplay.textContent = priceTotal + "€";
+}
+
+function removeProductFromCart(productId) {
+    cart.splice(productId, 1);
+    displayCart();
+}
 
 //display all elements inside availableProducts object array on the page
 function displayAvailableProducts() {
     for (let i = 0; i < availableProducts.length; i++) {
-
         let articleTag = document.createElement("article");
 
         let articleImgContainer = document.createElement("div");
@@ -104,11 +116,18 @@ function displayAvailableProducts() {
 
         let articleAddButton = document.createElement("button");
         articleAddButton.textContent = "acheter";
-        articleAddButton.addEventListener("click", function () { addProductToCart(i) });
+        articleAddButton.addEventListener("click", function () {
+            addProductToCart(i);
+        });
 
         articleImgContainer.appendChild(articleImg);
         articleBuyDiv.append(articlePrice, articleAddButton);
-        articleTag.append(articleImgContainer, articleName, articleDesc, articleBuyDiv);
+        articleTag.append(
+            articleImgContainer,
+            articleName,
+            articleDesc,
+            articleBuyDiv
+        );
         shopContainer.appendChild(articleTag);
     }
 }
@@ -118,7 +137,7 @@ function createProductElementInCart(item, i) {
 
     let articleName = document.createElement("span");
     articleName.classList.add("articleShorten");
-    articleName.textContent = item.name
+    articleName.textContent = item.name;
 
     let imageContainer = document.createElement("div");
     imageContainer.classList.add("thumbnailContainer");
@@ -158,6 +177,7 @@ function displayCart() {
     for (let i = 0; i < cart.length; i++) {
         cartContainer.appendChild(createProductElementInCart(cart[i], i))
     }
+    displayTotalAmount()
 }
 
 function removeOne(index) {
