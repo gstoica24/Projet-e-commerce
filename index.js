@@ -59,15 +59,20 @@ const availableProducts = [
 ];
 // cart est un tableau dynamique qui contient les éléments que l'on veut acheter
 // L'ensemble de ces produits seront affiché dans le cart
+// items inside the cart will have an added <quantity> property
 let cart = [];
 
-function addProductToCart(product) {
-    cart.push(availableProducts[i]);
-    displayCart();
-}
+function addProductToCart(productId) {
 
-function addProductToCart(product) {
-    cart.push(availableProducts[i]);
+    cartItemIndex = cart.findIndex(function (e) { return e.name == availableProducts[productId].name })
+
+    if (cartItemIndex == -1) {
+        let itemInCart = availableProducts[productId];
+        itemInCart.quantity = 1;
+        cart.push(itemInCart);
+    } else {
+        cart[cartItemIndex].quantity++;
+    }
     displayCart();
 }
 
@@ -108,49 +113,66 @@ function displayAvailableProducts() {
     }
 }
 
+function createProductElementInCart(item, i) {
+    let newLi = document.createElement("li");
+
+    let articleName = document.createElement("span");
+    articleName.classList.add("articleShorten");
+    articleName.textContent = item.name
+
+    let imageContainer = document.createElement("div");
+    imageContainer.classList.add("thumbnailContainer");
+
+
+    let articleThumbnail = document.createElement("img");
+    articleThumbnail.src = item.imageSource;
+    articleThumbnail.alt = "article image";
+
+    let changeQuantityContainer = document.createElement("div");
+    changeQuantityContainer.classList.add("quantityContainer");
+
+    let buttonDecrease = document.createElement("button");
+    buttonDecrease.textContent = '-';
+    buttonDecrease.addEventListener("click", function () { removeOne(i) });
+
+    let amountDisplay = document.createElement("span");
+    amountDisplay.classList.add("quantityDisplay");
+    amountDisplay.textContent = item.quantity;
+
+    let buttonIncrease = document.createElement("button");
+    buttonIncrease.textContent = '+';
+    buttonIncrease.addEventListener("click", function () { addOne(i) });
+
+    let buttonSuppr = document.createElement("button");
+    buttonSuppr.innerHTML = "❌";
+    buttonSuppr.addEventListener("click", function () { removeProductFromCart(i) });
+
+    imageContainer.appendChild(articleThumbnail);
+    changeQuantityContainer.append(buttonDecrease, amountDisplay, buttonIncrease);
+    newLi.append(articleName, imageContainer, changeQuantityContainer, buttonSuppr);
+    return newLi
+}
+
 function displayCart() {
+    cartContainer.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
-
-        let newLi = document.createElement("li");
-
-        let articleName = document.createElement("span");
-        articleName.classList.add("articleShorten");
-        articleName.textContent = cart[i].name
-
-        let imageContainer = document.createElement("div");
-        imageContainer.classList.add("thumbnailContainer");
-
-
-        let articleThumbnail = document.createElement("img");
-        articleThumbnail.src = cart[i].imageSource;
-        articleThumbnail.alt = "article image";
-
-        let changeQuantityContainer = document.createElement("div");
-        changeQuantityContainer.classList.add("quantityContainer");
-
-        let buttonDecrease = document.createElement("button");
-        buttonDecrease.textContent = '-';
-        buttonDecrease.addEventListener("click", function () { removeOne(i) });
-
-        let amountDisplay = document.createElement("span");
-        amountDisplay.classList.add("quantityDisplay");
-        amountDisplay.textContent = 1;
-
-        let buttonIncrease = document.createElement("button");
-        buttonIncrease.textContent = '+';
-        buttonIncrease.addEventListener("click", function () { addOne(i) });
-
-        let buttonSuppr = document.createElement("button");
-        buttonSuppr.innerHTML = "❌";
-        buttonSuppr.addEventListener("click", function () { suppArticle(i) });
-
-        imageContainer.appendChild(articleThumbnail);
-        changeQuantityContainer.append(buttonDecrease, amountDisplay, buttonIncrease);
-        newLi.append(articleName, imageContainer, changeQuantityContainer, buttonSuppr);
-        cartContainer.appendChild(newLi)
+        cartContainer.appendChild(createProductElementInCart(cart[i], i))
     }
 }
 
+function removeOne(index) {
+    if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+        displayCart();
+    } else {
+        removeProductFromCart(index);
+    }
+}
+
+function addOne(index) {
+    cart[index].quantity++;
+    displayCart();
+}
 
 /* execution */
 
