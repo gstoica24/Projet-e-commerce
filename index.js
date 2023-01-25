@@ -61,6 +61,16 @@ const availableProducts = [
 // L'ensemble de ces produits seront affiché dans le cart
 let cart = [];
 
+function addProductToCart(product) {
+    cart.push(availableProducts[i]);
+    displayCart();
+}
+
+function addProductToCart(product) {
+    cart.push(availableProducts[i]);
+    displayCart();
+}
+
 
 //display all elements inside availableProducts object array on the page
 function displayAvailableProducts() {
