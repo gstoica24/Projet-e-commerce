@@ -57,3 +57,8 @@ const availableProducts = [
 // cart est un tableau dynamique qui contient les éléments que l'on veut acheter
 // L'ensemble de ces produits seront affiché dans le cart
 let cart = [];
+
+function addProductToCart(product) {
+  cart.push(availableProducts[i]);
+  displayCart();
+}
