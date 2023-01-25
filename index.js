@@ -62,3 +62,15 @@ function addProductToCart(product) {
   cart.push(availableProducts[i]);
   displayCart();
 }
+
+function displayTotalAmount() {
+  let priceTotal;
+  for (i = 0; (i = cart.length); i++) {
+    priceTotal = cart.price + cart.price;
+  }
+}
+
+function removeProductFromCart(product) {
+  cart.splice((product = 0));
+  displayCart();
+}
