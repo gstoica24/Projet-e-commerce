@@ -126,6 +126,16 @@ aside>h2 {
     border-bottom: 1px solid black;
 }
 
+.articleShorten {
+    max-width: 35%;
+}
+
+.quantityDisplay {
+    width: 1em;
+    text-align: center;
+    border: 1px solid black;
+}
+
 #cartDisplay li>button {
     padding: 0 2px;
     background: none;
