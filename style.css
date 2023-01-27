@@ -94,6 +94,10 @@ article>div>button {
     column-gap: 2em;
 }
 
+.invisible {
+    display: none;
+}
+
 aside {
     background-color: whitesmoke;
     margin-top: 1.5em;

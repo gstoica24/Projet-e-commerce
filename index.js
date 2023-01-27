@@ -1,6 +1,8 @@
 const shopContainer = document.getElementById("grilleArticle");
 const cartContainer = document.getElementById("cartDisplay");
 const cartPriceDisplay = document.getElementById("cartTotalPrice");
+const cartArticlesDisplay = document.getElementById("cartTotalArticles");
+const cartShow = document.querySelector("aside");
 
 const availableProducts = [
   {
@@ -83,7 +85,17 @@ function displayTotalAmount() {
   for (let i = 0; i < cart.length; i++) {
     priceTotal = priceTotal + cart[i].price * cart[i].quantity;
   }
-  cartPriceDisplay.textContent = priceTotal + "€";
+  cartPriceDisplay.textContent = "Prix total du panier : " + priceTotal + "€";
+}
+
+function displayTotalArticles() {
+  let articlesTotal = 0;
+  for (let i = 0; i < cart.length; i++) {
+    articlesTotal = articlesTotal + cart[i].quantity;
+  }
+  console.log(articlesTotal);
+  cartArticlesDisplay.textContent =
+    " Nombres total articles ajoute : " + articlesTotal;
 }
 
 function removeProductFromCart(productId) {
@@ -102,7 +114,9 @@ function displayAvailableProducts() {
   shopContainer.innerHTML = "";
   for (let i = 0; i < availableProducts.length; i++) {
     let articleTag = document.createElement("article");
-    if (availableProducts[i].name.includes(input.value)) {
+    let upperCaseName = availableProducts[i].name;
+    let upperCaseValue = input.value;
+    if (upperCaseName.toUpperCase().includes(upperCaseValue.toUpperCase())) {
       let articleImgContainer = document.createElement("div");
       articleImgContainer.classList.add("imageContainer");
 
@@ -191,12 +205,23 @@ function createProductElementInCart(item, i) {
   return newLi;
 }
 
+function showCart() {
+  cartShow.classList.toggle("invisible");
+
+  /*if (cartShow.classList.contains("invisible")) {
+    cartShow.classList.remove("invisible");
+  } else {
+    cartShow.classList.add("invisible");
+  }*/
+}
+
 function displayCart() {
   cartContainer.innerHTML = "";
   for (let i = 0; i < cart.length; i++) {
     cartContainer.appendChild(createProductElementInCart(cart[i], i));
   }
   displayTotalAmount();
+  displayTotalArticles();
 }
 
 function removeOne(index) {
