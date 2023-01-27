@@ -3,6 +3,7 @@ const cartContainer = document.getElementById("cartDisplay");
 const cartPriceDisplay = document.getElementById("cartTotalPrice");
 const cartArticlesDisplay = document.getElementById("cartTotalArticles");
 const cartShow = document.querySelector("aside");
+const input = document.querySelector("header div input");
 
 const availableProducts = [
   {
@@ -78,6 +79,7 @@ function addProductToCart(productId) {
     cart[cartItemIndex].quantity++;
   }
   displayCart();
+  cartShow.classList.remove("invisible");
 }
 
 function displayTotalAmount() {
@@ -95,15 +97,13 @@ function displayTotalArticles() {
   }
   console.log(articlesTotal);
   cartArticlesDisplay.textContent =
-    " Nombres total articles ajoute : " + articlesTotal;
+    " Nombres total d'articles : " + articlesTotal;
 }
 
 function removeProductFromCart(productId) {
   cart.splice(productId, 1);
   displayCart();
 }
-
-let input = document.querySelector("input");
 
 input.addEventListener("input", function () {
   displayAvailableProducts();
@@ -208,7 +208,8 @@ function createProductElementInCart(item, i) {
 function showCart() {
   cartShow.classList.toggle("invisible");
 
-  /*if (cartShow.classList.contains("invisible")) {
+  /* Toggle est egale a mon if =
+  if (cartShow.classList.contains("invisible")) {
     cartShow.classList.remove("invisible");
   } else {
     cartShow.classList.add("invisible");

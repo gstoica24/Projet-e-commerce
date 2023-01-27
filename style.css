@@ -1,11 +1,12 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-image: url(./image-article/video-game-play-station-controller-background-gadgets-seamless-pattern-207362040.jpg);
-
+    background: white;
+   
     height: 100vh;
 }
 
@@ -13,13 +14,39 @@ nav {
     width: 100%;
     height: 70px;
     text-align: center;
-    background-color: darkgrey;
+    background-color:  #006cc7;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
+
+nav button{
+    background-color: #787777;
+    border: none;
+    padding: 10px 40px;
+    color: white;
+    border-radius: 20px;
+}
+
+nav button:hover{
+    background-color: greenyellow;
+    color: black;
+    transition: 0.2s;
+}
+
+
 
 h1 {
     margin-bottom: 30px;
 
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 
 .container {
     display: flex;
@@ -36,8 +63,9 @@ main {
 }
 
 article {
-    padding: .5em;
-    background-color: white;
+    border-radius: 20px;
+    padding: 2em .5em 1.5em .5em;
+    background-color: whitesmoke;
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -47,7 +75,7 @@ article {
 }
 
 article:hover {
-    box-shadow: 0px 0px 15px rgba(0, 33, 134, 0.1);
+    box-shadow: 10px 10px 10px 0px rgba(3, 66, 255, 0.206);
 }
 
 .imageContainer {
@@ -62,19 +90,18 @@ article img {
 }
 
 article>div>button {
-    background-color: #334C80;
+    background-color:  #006cc7;
     border: none;
-    padding: 3px 10px;
+    padding: 5px 15px;
     color: white;
+    border-radius: 5px;
 }
 
-
-
-.img2 {
-    display: inline-block;
-    background: blue;
-    width: 25%;
-    height: 100%;
+article>div>button:hover{
+    background-color:greenyellow ;
+    scale: 0.90;
+    color: black;
+    transition: 0.2s;
 }
 
 .addCart {
@@ -88,10 +115,11 @@ article>div>button {
 
 #grilleArticle {
     display: grid;
+    width:80%;
+    margin:auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
-    row-gap: 2em;
-    column-gap: 2em;
+    gap:2em;
 }
 
 .invisible {
@@ -107,7 +135,7 @@ aside {
     flex-direction: column;
     ;
     align-items: center;
-    border-left: 1px solid black;
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 aside>h2 {
@@ -127,7 +155,7 @@ aside>h2 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
 }
 
 .articleShorten {
@@ -162,9 +190,10 @@ aside>p {
 aside>button {
     margin-top: 2em;
     width: 70%;
-    background-color: hsl(221, 43%, 35%);
+    background-color: #006cc7;
     color: white;
     padding: 5px 8px;
+    border-radius: 7px;
 }
 
 .thumbnailContainer {
@@ -177,4 +206,8 @@ aside>button {
     display: block;
     overflow: hidden;
     height: 100%;
+}
+
+button{
+    cursor: pointer;
 }
