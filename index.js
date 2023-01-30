@@ -4,6 +4,14 @@ const cartPriceDisplay = document.getElementById("cartTotalPrice");
 const cartArticlesDisplay = document.getElementById("cartTotalArticles");
 const cartShow = document.querySelector("aside");
 const input = document.querySelector("header div input");
+const backgroundModal = document.getElementById("modalOverlay");
+const closeCartButton = document.getElementById("closeCartButton");
+const toggleCartButton = document.getElementById("toggleCartButton")
+
+/* ***** adding event listener for const element ***** */
+backgroundModal.addEventListener("click", hideCartModal);
+closeCartButton.addEventListener("click", hideCartModal);
+toggleCartButton.addEventListener("click", showCart);
 
 const availableProducts = [
   {
@@ -79,7 +87,7 @@ function addProductToCart(productId) {
     cart[cartItemIndex].quantity++;
   }
   displayCart();
-  cartShow.classList.remove("invisible");
+  showCartFromShop();
 }
 
 function displayTotalAmount() {
@@ -95,7 +103,6 @@ function displayTotalArticles() {
   for (let i = 0; i < cart.length; i++) {
     articlesTotal = articlesTotal + cart[i].quantity;
   }
-  console.log(articlesTotal);
   cartArticlesDisplay.textContent =
     " Nombres total d'articles : " + articlesTotal;
 }
@@ -204,16 +211,47 @@ function createProductElementInCart(item, i) {
   return newLi;
 }
 
-function showCart() {
-  cartShow.classList.toggle("invisible");
+function showCartModal() {
+  cartShow.classList.remove("invisible");
+  cartShow.classList.add("modalCart");
+  backgroundModal.classList.add("overlayDisplayed");
+}
 
-  /* Toggle est egale a mon if =
-  if (cartShow.classList.contains("invisible")) {
+function hideCartModal() {
+  cartShow.classList.add("invisible");
+  cartShow.classList.remove("modalCart");
+  backgroundModal.classList.remove("overlayDisplayed");
+}
+
+function showCartFromShop() {
+  if (document.documentElement.clientWidth > 1000) {
     cartShow.classList.remove("invisible");
   } else {
     cartShow.classList.add("invisible");
-  }*/
+  }
 }
+
+function showCart() {
+  if (cartShow.classList.contains("invisible") == false) {
+    cartShow.classList.add("invisible");
+    hideCartModal();
+  } else {
+    cartShow.classList.remove("invisible");
+    if (document.documentElement.clientWidth > 1000) {
+      hideCartModal();
+    } else {
+      showCartModal();
+    }
+  }
+}
+
+/* Toggle est egale a mon if =
+if (cartShow.classList.contains("invisible")) {
+  cartShow.classList.remove("invisible");
+} else {
+  cartShow.classList.add("invisible");
+}*/
+
 
 //display content of the cart in the aside
 function displayCart() {
