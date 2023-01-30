@@ -132,6 +132,7 @@ function displayAvailableProducts() {
     }
 }
 
+//creates a new div hosting the display of an article in the cart
 function createProductElementInCart(item, i) {
     let newLi = document.createElement("li");
 
@@ -163,7 +164,7 @@ function createProductElementInCart(item, i) {
     buttonIncrease.addEventListener("click", function () { addOne(i) });
 
     let buttonSuppr = document.createElement("button");
-    buttonSuppr.innerHTML = "❌";
+    buttonSuppr.textContent = "❌";
     buttonSuppr.addEventListener("click", function () { removeProductFromCart(i) });
 
     imageContainer.appendChild(articleThumbnail);
@@ -172,6 +173,7 @@ function createProductElementInCart(item, i) {
     return newLi
 }
 
+//display content of the cart in the aside
 function displayCart() {
     cartContainer.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
@@ -180,6 +182,7 @@ function displayCart() {
     displayTotalAmount()
 }
 
+//decrease amount of an article by one, remove article if quantity = 0
 function removeOne(index) {
     if (cart[index].quantity > 1) {
         cart[index].quantity--;
@@ -189,6 +192,7 @@ function removeOne(index) {
     }
 }
 
+//increase amount of an article by one
 function addOne(index) {
     cart[index].quantity++;
     displayCart();
