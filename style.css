@@ -6,7 +6,7 @@
 
 body {
     background: white;
-   
+    width:100%;
     height: 100vh;
 }
 
@@ -63,8 +63,8 @@ main {
 }
 
 article {
-    border-radius: 20px;
-    padding: 2em .5em 1.5em .5em;
+    border-radius: 10px;
+    padding: 2em 1.5em 1.5em 1.5em;
     background-color: whitesmoke;
     box-sizing: border-box;
     text-align: center;
@@ -211,3 +211,37 @@ aside>button {
 button{
     cursor: pointer;
 }
+
+footer{
+    background: #071124;
+    color: #1ed1dd;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    width: 100%;
+}
+
+footer .mentions{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1.5em;
+    width: 33%;
+    align-items: flex-start;
+       
+}
+footer .mentions h4:last-child{
+    margin-right:auto;
+}
+
+
+
+
+
+footer .reseaux{
+    display: flex;
+    gap: 1.5em 1.5em;
+    justify-content: center;
+}
+
+
