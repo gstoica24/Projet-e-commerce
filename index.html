@@ -14,8 +14,20 @@
 
 <body>
   <nav>
-    <h1>Online Shop</h1>
-    <button id="toggleCartButton">Panier 🛒</button>
+    <h1>
+      <img src="/Blue Gaming  LogoBig.png" height="110" width="110" alt="" />
+    </h1>
+    <div>
+      <button>
+        <img src="/house.png" alt="" />
+      </button>
+      <button>
+        <img src="/user.png" alt="" />
+      </button>
+      <button id="toggleCartButton">
+        <img src="/cart.png" />
+      </button>
+    </div>
   </nav>
 
   <div class="container boxed">
@@ -43,8 +55,8 @@
     </aside>
   </div>
 
-  <footer>
-    <div class="mentions boxed">
+  <footer class="boxed">
+    <div class="mentions">
       <h4>Mentions legale</h4>
       <h4>Protection des donnes</h4>
       <h4>CGV</h4>
@@ -54,8 +66,8 @@
     <div class="box-appli">
       <h3>Applications Online Shop</h3>
       <div>
-        <img src="/appstore.webp" height="50" width="120" alt="" srcset="" />
-        <img src="/googleplay.png" height="50" width="120" alt="" srcset="" />
+        <div class="appStoreImgContainer"><img src="/appstore.webp" alt="" srcset="" /></div>
+        <div class="appStoreImgContainer"><img src="/googleplay.png" alt="" srcset="" /></div>
       </div>
     </div>
     <div class="box-reseaux">
@@ -69,7 +81,6 @@
   </footer>
   <div id="modalOverlay" class="invisible"></div>
   <script src="index.js"></script>
-
 </body>
 
 </html>
