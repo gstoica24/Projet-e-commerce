@@ -6,7 +6,7 @@
 
 body {
     background: white;
-    width:100%;
+    width: 100%;
     height: 100vh;
 }
 
@@ -37,7 +37,7 @@ nav button{
     scale: 1;
 }
 
-nav button:hover{
+nav button:hover {
     background-color: greenyellow;
     color: black;
     transition: 0.2s;
@@ -79,8 +79,8 @@ main {
 }
 
 article {
-    border-radius: 10px;
-    padding: 2em 1.5em 1.5em 1.5em;
+    border-radius: 20px;
+    padding: 2em 15px 1.5em 15px;
     background-color: whitesmoke;
     box-sizing: border-box;
     text-align: center;
@@ -88,6 +88,7 @@ article {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    height: 70vh;
 }
 
 article:hover {
@@ -99,22 +100,31 @@ article:hover {
 }
 
 article img {
-    display: block;
     object-fit: cover;
     width: 100%;
 
 }
 
+article h2 {
+    height: 35%;
+    overflow: scroll;
+}
+
+article p {
+    height: 65%;
+    overflow: scroll;
+}
+
 article>div>button {
-    background-color:  #006cc7;
+    background-color: #006cc7;
     border: none;
     padding: 5px 15px;
     color: white;
     border-radius: 5px;
 }
 
-article>div>button:hover{
-    background-color:greenyellow ;
+article>div>button:hover {
+    background-color: greenyellow;
     scale: 0.90;
     color: black;
     transition: 0.2s;
@@ -125,17 +135,22 @@ article>div>button:hover{
     padding-top: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+}
+
+.addCart span {
+    font-size: 1.1em;
 }
 
 
 #grilleArticle {
     display: grid;
-    width:80%;
-    margin:auto;
+    width: 80%;
+    margin: auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
-    gap:2em;
+    gap: 2em;
 }
 
 .invisible {
@@ -203,7 +218,7 @@ aside>p {
     align-self: flex-end;
 }
 
-aside>button {
+#commandCart {
     margin-top: 2em;
     width: 70%;
     background-color: #006cc7;
@@ -224,11 +239,11 @@ aside>button {
     height: 100%;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-footer{
+footer {
     background: #071124;
     color: #1ed1dd;
     display: flex;
@@ -238,26 +253,109 @@ footer{
     width: 100%;
 }
 
-footer .mentions{
+footer .mentions {
     display: inline-flex;
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
     width: 33%;
     align-items: flex-start;
-       
-}
-footer .mentions h4:last-child{
-    margin-right:auto;
+
 }
 
+footer .mentions h4:last-child {
+    margin-right: auto;
+}
 
 
 
 
-footer .reseaux{
+
+footer .reseaux {
     display: flex;
     gap: 1.5em 1.5em;
     justify-content: center;
 }
 
 
+
+
+
+
+@media only screen and (max-width:1700px) {
+    #grilleArticle {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width:1300px) {
+    body {
+        font-size: 90%;
+    }
+
+    #grilleArticle {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    article {
+        height: 100%;
+    }
+
+    article img {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    #grilleArticle {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    #grilleArticle {
+        grid-template-columns: 1fr;
+    }
+
+    #grilleArticle {
+        width: 80%;
+    }
+
+    article h2 {
+        height: 35%;
+        overflow: initial
+    }
+
+    article p {
+        height: 65%;
+        overflow: initial;
+    }
+
+}
+
+.modalCart {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    width: 80%;
+    height: 100%;
+}
+
+#closeCartButton {
+    position: absolute;
+    width: fit-content;
+    right: 1em;
+    padding: 0px 4px;
+}
+
+.overlayDisplayed {
+    position: fixed;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
