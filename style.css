@@ -12,20 +12,29 @@ body {
 
 nav {
     width: 100%;
-    height: 70px;
-    text-align: center;
+    padding: 0 10%;
+    box-sizing: border-box;
+    height: 80px;
+    margin: auto;
     background-color:  #006cc7;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+nav div{
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav button{
-    background-color: #787777;
+     background-color:  #006cc7;
     border: none;
-    padding: 10px 40px;
+    padding: 5px 10px;
     color: white;
-    border-radius: 20px;
+    border-radius: 10px;
+    scale: 1;
 }
 
 nav button:hover{
@@ -43,8 +52,16 @@ h1 {
 
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+header div{
+    display: flex;
+    justify-content: flex-end;
 }
 
 
@@ -59,7 +76,6 @@ header {
 
 main {
     width: 100%;
-    padding: 1.5em;
 }
 
 article {
