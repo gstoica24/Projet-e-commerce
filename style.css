@@ -231,39 +231,43 @@ footer {
     background: #071124;
     color: #1ed1dd;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 200px;
     width: 100%;
+    padding-top: 5em;
 }
 
 footer .mentions {
     display: inline-flex;
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
-    width: 33%;
+    width: 40%;
+    height: fit-content;
     align-items: flex-start;
-
 }
 
 footer .mentions h4:last-child {
     margin-right: auto;
 }
 
+footer .box-appli {
+    width: 25%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-
-
+footer .box-reseaux {
+    width: 25%;
+    text-align: center;
+}
 
 footer .reseaux {
     display: flex;
     gap: 1.5em 1.5em;
     justify-content: center;
 }
-
-
-
-
-
 
 @media only screen and (max-width:1700px) {
     #grilleArticle {
@@ -293,9 +297,20 @@ footer .reseaux {
     #grilleArticle {
         width: 90%;
     }
+
+    footer {
+        justify-content: space-evenly;
+    }
+
+    footer .mentions {
+        flex-flow: column;
+        width: fit-content;
+    }
+
 }
 
 @media only screen and (max-width:700px) {
+
     #grilleArticle {
         grid-template-columns: 1fr;
     }
@@ -313,6 +328,12 @@ footer .reseaux {
         height: 65%;
         overflow: initial;
     }
+
+    footer {
+        flex-wrap: wrap;
+    }
+
+    .box-appli div {}
 
 }
 
