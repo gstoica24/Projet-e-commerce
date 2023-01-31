@@ -234,14 +234,14 @@ function showCartFromShop() {
 function showCart() {
   if (cartShow.classList.contains("invisible") == false) {
     cartShow.classList.add("invisible");
-    hideCartModal();
+    hideCartModal();  // FIX
   } else {
-    cartShow.classList.remove("invisible");
     if (document.documentElement.clientWidth > 1000) {
       hideCartModal();
     } else {
       showCartModal();
     }
+    cartShow.classList.remove("invisible");
   }
 }
 
