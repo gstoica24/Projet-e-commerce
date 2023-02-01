@@ -287,6 +287,14 @@ footer .reseaux {
     justify-content: center;
 }
 
+@media only screen and (max-width:425px){
+    header {
+        flex-direction: column;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+}
+
 @media only screen and (max-width:1700px) {
     #grilleArticle {
         grid-template-columns: 1fr 1fr 1fr;
