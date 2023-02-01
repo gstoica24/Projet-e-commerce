@@ -12,15 +12,16 @@ body {
 
 nav {
     width: 100%;
-    padding: 0 10%;
-    box-sizing: border-box;
-    height: 80px;
-    margin: auto;
-    background-color:  #006cc7;
+    height: 70px;
+    text-align: center;
+    background-color: #006cc7;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+nav h1{
+    margin-top: 1.5em;
 }
 
 nav h1{
@@ -35,10 +36,9 @@ nav div{
 nav button{
      background-color:  #006cc7;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 40px;
     color: white;
-    border-radius: 10px;
-    scale: 1;
+    border-radius: 20px;
 }
 
 nav button:hover {
@@ -56,16 +56,8 @@ h1 {
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 80%;
-    margin: auto;
-    margin-top: 10px;
-}
-
-header div{
-    display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 
@@ -80,6 +72,7 @@ header div{
 
 main {
     width: 100%;
+    padding: 1.5em;
 }
 
 article {
@@ -116,7 +109,7 @@ article h2 {
 
 article p {
     height: 65%;
-    
+    overflow: hidden;
 }
 
 article>div>button {
@@ -251,39 +244,56 @@ footer {
     background: #071124;
     color: #1ed1dd;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 200px;
+    justify-content: space-evenly;
     width: 100%;
+    padding: 5em 20px;
 }
 
 footer .mentions {
     display: inline-flex;
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
-    width: 33%;
+    width: 40%;
+    height: fit-content;
     align-items: flex-start;
-
 }
 
-footer .mentions h4:last-child {
-    margin-right: auto;
+footer .box-appli {
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
+.box-appli>div {
+    padding-top: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+}
 
+.appStoreImgContainer {
+    width: 45%;
+}
 
+.appStoreImgContainer img {
+    object-fit: cover;
+    width: 100%;
+}
 
+footer .box-reseaux {
+    width: 25%;
+    text-align: center;
+}
 
 footer .reseaux {
     display: flex;
     gap: 1.5em 1.5em;
     justify-content: center;
 }
-
-
-
-
-
 
 @media only screen and (max-width:1700px) {
     #grilleArticle {
@@ -313,9 +323,20 @@ footer .reseaux {
     #grilleArticle {
         width: 90%;
     }
+
+    footer {
+        justify-content: space-evenly;
+    }
+
+    footer .mentions {
+        flex-flow: column;
+        width: fit-content;
+    }
+
 }
 
 @media only screen and (max-width:700px) {
+
     #grilleArticle {
         grid-template-columns: 1fr;
     }
@@ -332,6 +353,59 @@ footer .reseaux {
     article p {
         height: 65%;
         overflow: initial;
+    }
+
+    footer {
+        flex-wrap: wrap;
+    }
+
+    .appStoreImgContainer {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    footer {
+        height: fit-content;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 30px;
+    }
+
+    footer .mentions {
+        width: 80%;
+        justify-content: center;
+        flex-flow: row wrap;
+    }
+
+    footer .box-appli {
+        width: 80%;
+    }
+
+    .appStoreImgContainer {
+        width: 25%;
+    }
+
+    footer .box-reseaux {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    footer .mentions {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .box-appli>div {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .appStoreImgContainer {
+        width: 35%;
     }
 
 }

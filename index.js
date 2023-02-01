@@ -249,8 +249,7 @@ function showCartFromShop() {
 
 function showCart() {
   if (cartShow.classList.contains("invisible") == false) {
-    cartShow.classList.add("invisible");
-    hideCartModal(); // FIX
+    hideCartModal();
   } else {
     if (document.documentElement.clientWidth > 1000) {
       hideCartModal();
