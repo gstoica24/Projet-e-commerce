@@ -20,8 +20,13 @@ nav {
     align-items: flex-end;
 }
 
-nav button {
-    background-color: #787777;
+nav div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav button{
+     background-color:  #006cc7;
     border: none;
     padding: 10px 40px;
     color: white;
@@ -91,6 +96,7 @@ article img {
 
 article h2 {
     height: 35%;
+   
 }
 
 article p {
@@ -279,6 +285,14 @@ footer .reseaux {
     display: flex;
     gap: 1.5em 1.5em;
     justify-content: center;
+}
+
+@media only screen and (max-width:425px){
+    header {
+        flex-direction: column;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
 }
 
 @media only screen and (max-width:1700px) {
