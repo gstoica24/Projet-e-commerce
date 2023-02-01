@@ -7,6 +7,7 @@ const input = document.querySelector("header div input");
 const backgroundModal = document.getElementById("modalOverlay");
 const closeCartButton = document.getElementById("closeCartButton");
 const toggleCartButton = document.getElementById("toggleCartButton")
+const confirmCartButton = document.getElementById("commandCart")
 
 /* ***** adding event listener for const element ***** */
 backgroundModal.addEventListener("click", hideCartModal);
@@ -88,6 +89,7 @@ function addProductToCart(productId) {
   }
   displayCart();
   showCartFromShop();
+  storeCart();
 }
 
 function displayTotalAmount() {
@@ -110,6 +112,7 @@ function displayTotalArticles() {
 function removeProductFromCart(productId) {
   cart.splice(productId, 1);
   displayCart();
+  storeCart()
 }
 
 input.addEventListener("input", function () {
@@ -270,14 +273,37 @@ function removeOne(index) {
   } else {
     removeProductFromCart(index);
   }
+  storeCart();
 }
 
 //increase amount of an article by one
 function addOne(index) {
   cart[index].quantity++;
   displayCart();
+  storeCart();
+}
+
+// stores the cart object into the local storage
+function storeCart() {
+  localStorage.clear();
+  window.localStorage.setItem("savedCart", JSON.stringify(cart));
+}
+
+//gets the savedcart local storage and copies it inside cart
+function getCartOnLoad() {
+  let savedCart = JSON.parse(localStorage.getItem('savedCart') || "[]");
+  cart = [...savedCart];
 }
 
 /* execution */
-
+getCartOnLoad()
 displayAvailableProducts();
+
+if (cart.length > 0) {
+  console.log(cart);
+  displayCart()
+  if (document.documentElement.clientWidth > 1000) {
+    showCart();
+  }
+
+}
