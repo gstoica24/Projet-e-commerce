@@ -1,84 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projet</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-  <nav>
-    <img src="/Blue Gaming  Logo (2).png" height="70" width="70" alt="" />
-
-    <div>
-      <button>
-        <img src="/house.png" alt="" />
-      </button>
-      <button>
-        <img src="/user.png" alt="" />
-      </button>
-      <button id="toggleCartButton">
-        <img src="/cart.png" />
-      </button>
-    </div>
-  </nav>
-
-  <div class="container boxed">
-    <main class="boxed">
-      <header>
-        <img src="./image-article/ps5-black-badge-01-en-11sep20.webp" alt="" />
-
-        <div>
-          <input type="text" placeholder="search" />
-          <span>🔎</span>
-        </div>
-      </header>
-      <section id="grilleArticle" class="boxed"></section>
-    </main>
-
-    <aside class="boxed invisible">
-      <h2>Cart</h2>
-      <button id="closeCartButton">X</button>
-      <ul id="cartDisplay"></ul>
-      <p id="cartTotalArticles">Articles : 00</p>
-      <p id="cartTotalPrice">Total : 00€</p>
-
-      <button id="commandCart" onClick="window.location.href='confirmCart.html'">Passer commande</button>
-    </aside>
-  </div>
-
-  <footer class="boxed">
-    <div class="mentions">
-      <h4>Mentions legale</h4>
-      <h4>Protection des donnes</h4>
-      <h4>CGV</h4>
-      <h4>*Conditions des offres</h4>
-      <h4>Parametres des donnees</h4>
-    </div>
-    <div class="box-appli">
-      <h3>Applications Online Shop</h3>
+  <body>
+    <nav>
+      <a href="pageAcc.html"
+        ><img src="/Blue Gaming  Logo (2).png" height="70" width="70" alt=""
+      /></a>
       <div>
-        <img src="/appstore.webp" width="16%" alt="" srcset="" />
-        <img src="/googleplay.png" width="16%" alt="" srcset="" />
+        <button>
+          <a href="index.html"><img src="/house.png" alt="" /></a>
+        </button>
+        <button>
+          <img src="/user.png" alt="" />
+        </button>
+        <button id="toggleCartButton">
+          <img src="/cart.png" />
+        </button>
       </div>
-    </div>
-    <div class="box-reseaux">
-      <h3>Réseaux Sociaux</h3>
-      <div class="reseaux">
-        <img src="/facebook-logo-2019 (4).png" alt="" />
-        <img src="/instagram (3).png" alt="" />
-        <img src="/twitter.png" alt="" />
-      </div>
-    </div>
-  </footer>
-  <div id="modalOverlay" class="invisible"></div>
-  <script src="index.js"></script>
-</body>
+    </nav>
 
+    <div class="container boxed">
+      <main class="boxed">
+        <header>
+          <img
+            src="./image-article/ps5-black-badge-01-en-11sep20.webp"
+            alt=""
+          />
+
+          <div>
+            <input type="text" placeholder=" search" />
+            <span>🔎</span>
+          </div>
+        </header>
+        <section id="grilleArticle" class="boxed"></section>
+      </main>
+
+      <aside class="boxed invisible">
+        <h2>Cart</h2>
+        <button id="closeCartButton">X</button>
+        <ul id="cartDisplay"></ul>
+        <p id="cartTotalArticles">Articles : 00</p>
+        <p id="cartTotalPrice">Total : 00€</p>
+
+        <button
+          id="commandCart"
+          onClick="window.location.href='confirmCart.html'"
+        >
+          Passer commande
+        </button>
+      </aside>
+    </div>
+
+    <footer class="boxed">
+      <div class="mentions">
+        <h4>Mentions legale</h4>
+        <h4>Protection des donnes</h4>
+        <h4>CGV</h4>
+        <h4>*Conditions des offres</h4>
+        <h4>Parametres des donnees</h4>
+      </div>
+      <div class="box-appli">
+        <h3>Applications Online Shop</h3>
+        <div>
+          <img src="/appstore.webp" width="16%" alt="" srcset="" />
+          <img src="/googleplay.png" width="16%" alt="" srcset="" />
+        </div>
+      </div>
+      <div class="box-reseaux">
+        <h3>Réseaux Sociaux</h3>
+        <div class="reseaux">
+          <img src="/facebook-logo-2019 (4).png" alt="" />
+          <img src="/instagram (3).png" alt="" />
+          <img src="/twitter.png" alt="" />
+        </div>
+      </div>
+    </footer>
+    <div id="modalOverlay" class="invisible"></div>
+    <script src="index.js"></script>
+  </body>
 </html>
