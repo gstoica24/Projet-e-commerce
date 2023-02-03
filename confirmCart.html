@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validation du panier</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <img src="/Blue Gaming  Logo (2).png" height="70" width="70" alt="" />
+
+    <div>
+      <button>
+        <img src="/house.png" alt="" />
+      </button>
+      <button>
+        <img src="/user.png" alt="" />
+      </button>
+      <button id="toggleCartButton">
+        <img src="/cart.png" />
+      </button>
+    </div>
+  </nav>
+
+  <main id="purchaseCartPage" class="boxed">
+    <section id="checkout">
+      <div>
+        <h2>Checkout informations</h2>
+        <img src="/cart.png" alt="cart icon" />
+      </div>
+      <div>
+        <h4>Pay with</h4>
+        <div id="paymentOptions">
+          <button>Visa</button>
+          <button>Paypal</button>
+        </div>
+      </div>
+      <form id="paymentInfo" action="purchased.html">
+        <div id="clientNameDiv">
+          <label for="familyNameField">Nom de famille</label>
+          <input id="familyNameField" name="familyName" placeholder="tapez votre nom de famille" maxlength="30"
+            required>
+          <div class="alertDiv"><span id="alertFamilyName" class="alert invisible"></span></div>
+          <label for="firstNameField">Prénom</label>
+          <input id="firstNameField" name="firstName" placeholder="tapez votre prénom" maxlength="30" required>
+          <div class="alertDiv"><span id="alertFirstName" class="alert invisible"></span></div>
+        </div>
+        <div id="clientAddress">
+          <label for="roadAddress">Addresse</label>
+          <input id="roadAddress" name="roadAddress" placeholder="n° et nom de rue" maxlength="50" required>
+          <div class="alertDiv"><span id="alertAddress" class="alert invisible"></span></div>
+          <div>
+            <div>
+              <label for="postalCode">Code postal</label>
+              <input id="postalCode" name="postalCode" placeholder="ex:38000" maxlength="5" size="5" required>
+              <div class="alertDiv"><span id="alertPostalCode" class="alert invisible"></span></div>
+            </div>
+            <div>
+              <label for="cityName">ville</label>
+              <input id="cityName" name="cityName" placeholder="ville" maxlength="50" required>
+              <div class="alertDiv"><span id="alertCity" class="alert invisible"></span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="cardNumber">Numero de carte</label>
+          <input id="cardNumber" name="cardNumber" placeholder=" xxxx-xxxx-xxxx-xxxx" maxlength="19" required>
+          <div class="alertDiv"><span id="alertCardNumber" class="alert invisible"></span></div>
+          <div id="cardSecurityDiv">
+            <div>
+              <label>Date d'expiration</label>
+              <select id="expirationMonth" name="expirationMonth" required>
+                <option value=1>01</option>
+                <option value=2>02</option>
+                <option value=3>03</option>
+                <option value=4>04</option>
+                <option value=5>05</option>
+                <option value=6>06</option>
+                <option value=7>07</option>
+                <option value=8>08</option>
+                <option value=9>09</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+              </select>
+              <select id="expirationYear" name="expirationYear" required></select>
+              <div class="alertDiv"><span id="alertCardExpiration" class="alert invisible"></span></div>
+            </div>
+            <div>
+              <label for="securityCode">cvv2</label>
+              <input id="securityCode" name="securityCode" placeholder="000" maxlength="3" size="1">
+              <div class="alertDiv"><span id="alertCardCode" class="alert invisible"></span></div>
+            </div>
+          </div>
+        </div>
+        <input id="purchaseCartButton" type="submit">
+      </form>
+      <button id="test">TEST</button>
+    </section>
+
+    <aside id="cartInfo">
+      <h2>Cart</h2>
+      <ul id="cartDisplay"></ul>
+      <p id="cartTotalArticles">Articles : 00</p>
+      <p id="cartTotalPrice">Total : 00€</p>
+    </aside>
+  </main>
+
+  <footer class="boxed">
+    <div class="mentions">
+      <h4>Mentions legale</h4>
+      <h4>Protection des donnes</h4>
+      <h4>CGV</h4>
+      <h4>*Conditions des offres</h4>
+      <h4>Parametres des donnees</h4>
+    </div>
+    <div class="box-appli">
+      <h3>Applications Online Shop</h3>
+      <div>
+        <img src="/appstore.webp" width="16%" alt="" srcset="" />
+        <img src="/googleplay.png" width="16%" alt="" srcset="" />
+      </div>
+    </div>
+    <div class="box-reseaux">
+      <h3>Réseaux Sociaux</h3>
+      <div class="reseaux">
+        <img src="/facebook-logo-2019 (4).png" alt="" />
+        <img src="/instagram (3).png" alt="" />
+        <img src="/twitter.png" alt="" />
+      </div>
+    </div>
+  </footer>
+</body>
+
+<script src="scriptConfirmCart.js"></script>
+
+
+</html>

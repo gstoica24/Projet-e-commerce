@@ -20,13 +20,13 @@ nav {
     align-items: flex-end;
 }
 
-nav div{
+nav div {
     display: flex;
     justify-content: flex-end;
 }
 
-nav button{
-     background-color:  #006cc7;
+nav button {
+    background-color: #006cc7;
     border: none;
     padding: 10px 40px;
     color: white;
@@ -96,7 +96,7 @@ article img {
 
 article h2 {
     height: 35%;
-   
+
 }
 
 article p {
@@ -287,7 +287,7 @@ footer .reseaux {
     justify-content: center;
 }
 
-@media only screen and (max-width:425px){
+@media only screen and (max-width:425px) {
     header {
         flex-direction: column;
         margin-bottom: 15px;
@@ -440,3 +440,106 @@ footer .reseaux {
 
 
 /* ***** CSS confirmCart ***** */
+
+#purchaseCartPage {
+    display: flex;
+}
+
+#checkout {
+    width: 40%;
+    margin-top: 1.5em;
+    border-right: 1px solid black;
+    padding: 1em;
+}
+
+#checkout>div:first-child {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2em;
+}
+
+#paymentOptions button {
+    font-size: 1.5em;
+}
+
+
+#paymentInfo {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#paymentInfo>Div {
+    display: flex;
+    flex-direction: column;
+}
+
+#clientNameDiv input {
+    width: 50%;
+}
+
+#clientAddress>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clientAddress>div label {
+    margin-right: 5px;
+}
+
+#clientAddress>div>div:last-child {
+    text-align: right;
+}
+
+#roadAddress {
+    width: 70%;
+}
+
+#cityName {
+    width: 40%
+}
+
+#cardNumber {
+    width: 70%;
+}
+
+#cardSecurityDiv {
+    display: flex;
+}
+
+#cardSecurityDiv>div:last-child {
+    margin-left: auto;
+}
+
+#checkout [type="submit"] {
+    margin-top: 20px;
+    align-self: flex-end;
+    width: fit-content;
+    padding: 3px 15px;
+}
+
+#cartInfo {
+    width: 60%;
+    display: flex;
+}
+
+.alertDiv {
+    height: 16px;
+    line-height: .8em;
+}
+
+.alert {
+    color: red;
+    font-style: italic;
+    font-size: .8em;
+    vertical-align: top;
+}
+
+#paiementWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
