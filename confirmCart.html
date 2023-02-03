@@ -13,10 +13,12 @@
 </head>
 
 <body>
-  <nav>
-    <a href="pageAcc.html"><img src="/Blue Gaming  Logo (2).png" height="70" width="70" alt="" /></a>
+  <nav class="navPageAcc">
+
+    <a href="pageAcc.html"><img src="/Blue Gaming  Logo (2).png" height="100" width="100" alt="" /></a>
     <div>
       <button>
+
         <a href="index.html"><img src="/house.png" alt="" /></a>
       </button>
       <button>
@@ -31,14 +33,14 @@
   <main id="purchaseCartPage" class="boxed">
     <section id="checkout">
       <div>
-        <h2>Checkout informations</h2>
+        <h2>informations de paiement</h2>
         <img src="/cart.png" alt="cart icon" />
       </div>
       <div>
-        <h4>Pay with</h4>
+        <h4>Méthode de paiement</h4>
         <div id="paymentOptions">
-          <button>Visa</button>
-          <button>Paypal</button>
+          <button id="visaBtn">Visa</button>
+          <button id="paypalBtn">Paypal</button>
         </div>
       </div>
       <form id="paymentInfo" action="purchased.html">
@@ -74,7 +76,7 @@
           <div class="alertDiv"><span id="alertCardNumber" class="alert invisible"></span></div>
           <div id="cardSecurityDiv">
             <div>
-              <label>Date d'expiration</label>
+              <label>Date d'éxpiration</label>
               <select id="expirationMonth" name="expirationMonth" required>
                 <option value=1>01</option>
                 <option value=2>02</option>
@@ -99,12 +101,12 @@
             </div>
           </div>
         </div>
-        <input id="purchaseCartButton" type="submit">
+        <input id="purchaseCartButton" type="submit" value="Confirmer">
       </form>
     </section>
 
     <aside id="cartInfo">
-      <h2>Cart</h2>
+      <h2>Panier</h2>
       <ul id="cartDisplay"></ul>
       <p id="cartTotalArticles">Articles : 00</p>
       <p id="cartTotalPrice">Total : 00€</p>

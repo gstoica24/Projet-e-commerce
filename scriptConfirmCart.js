@@ -8,10 +8,11 @@ form.addEventListener("submit", function (event) {
     event.preventDefault()
 });
 
+const buttonPaypal = document.getElementById("paypalBtn");
+buttonPaypal.addEventListener("click", () => { alert("PAYPAL WINDOW SHOULD OPEN IN SUCH CIRCUMSTANCES") });
+
+
 const purchaseCartButton = document.getElementById("purchaseCartButton");
-/*purchaseCartButton.addEventListener("click", function (event) {
-    event.preventDefault()
-}); */
 purchaseCartButton.addEventListener("click", purchaseCart);
 
 

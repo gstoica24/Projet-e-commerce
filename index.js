@@ -149,7 +149,6 @@ function displayAvailableProducts() {
       articlePrice.textContent = availableProducts[i].price + "€";
 
       let amountDisplayArticles = document.createElement("input");
-      amountDisplayArticles.setAttribute("id", "inputField" + i);
       amountDisplayArticles.type = "number";
       amountDisplayArticles.min = 1;
       amountDisplayArticles.max = 9;
