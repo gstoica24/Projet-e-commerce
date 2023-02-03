@@ -3,53 +3,59 @@ const cartContainer = document.getElementById("cartDisplay");
 const cartPriceDisplay = document.getElementById("cartTotalPrice");
 const cartArticlesDisplay = document.getElementById("cartTotalArticles");
 
-const testButton = document.getElementById("test");
 const form = document.querySelector("form");
-
-testButton.addEventListener("click", test);
+form.addEventListener("submit", function (event) {
+    event.preventDefault()
+});
 
 const purchaseCartButton = document.getElementById("purchaseCartButton");
+/*purchaseCartButton.addEventListener("click", function (event) {
+    event.preventDefault()
+}); */
+purchaseCartButton.addEventListener("click", purchaseCart);
+
+
 
 const inputFields = {
     familyName: {
         field: document.getElementById("familyNameField"),
         alertElement: document.getElementById("alertFamilyName"),
-        pattern: /^([a-zA-Z]){3,}\Z/,
+        pattern: /^([a-zA-Z]){3,}$/,
         isValid: false,
         alertMessage: "ce champs n'accepte que des lettres et au moins 3 charactère"
     },
     firstName: {
         field: document.getElementById("firstNameField"),
         alertElement: document.getElementById("alertFirstName"),
-        pattern: /^([a-zA-Z]){3,}\Z/,
+        pattern: /^([a-zA-Z]){3,}$/,
         isValid: false,
         alertMessage: "ce champs n'accepte que des lettres et au moins 3 charactère"
     },
     address: {
         field: document.getElementById("roadAddress"),
         alertElement: document.getElementById("alertAddress"),
-        pattern: /^(\w|-|\'| ){5,}\Z/,
+        pattern: /^(\w|-|\'| ){5,}$/,
         isValid: false,
         alertMessage: "certains caractères utilisés sont invalides"
     },
     postalCode: {
         field: document.getElementById("postalCode"),
         alertElement: document.getElementById("alertPostalCode"),
-        pattern: /^\d{5}\Z/,
+        pattern: /^\d{5}$/,
         isValid: false,
         alertMessage: "certains caractères utilisés sont invalides"
     },
     city: {
         field: document.getElementById("cityName"),
         alertElement: document.getElementById("alertCity"),
-        pattern: /^([a-zA-Z]){3,}\Z/,
+        pattern: /^([a-zA-Z]){3,}$/,
         isValid: false,
         alertMessage: "ce champs n'accepte que des lettres et au moins 3 charactère"
     },
     cardNumber: {
         field: document.getElementById("cardNumber"),
         alertElement: document.getElementById("alertCardNumber"),
-        pattern: /^\d{4}-\d{4}-\d{4}-\d{4}\Z/,
+        pattern: /^(\d{4}-\d{4}-\d{4}-\d{4})$/,
         isValid: false,
         alertMessage: "insérer 16 chiffres selong le format 0000-0000-0000-0000"
 
@@ -64,11 +70,11 @@ const inputFields = {
     cardCode: {
         field: document.getElementById("securityCode"),
         alertElement: document.getElementById("alertCardCode"),
-        pattern: /^\d{3}\Z/,
+        pattern: /^\d{3}$/,
         isValid: false,
         alertMessage: "ce champs n'accepte qu'une série de trois chiffres"
     },
-}
+};
 
 
 
@@ -78,7 +84,7 @@ inputFields.expirationDate.fillYearSelect = function () {
         let newSelectOption = document.createElement("Option")
         newSelectOption.setAttribute('value', currentDate.getFullYear() + i);
         let newSelectOptionText = document.createTextNode(currentDate.getFullYear() + i);
-        newSelectOption.appendChild(newSelectOptionText)
+        newSelectOption.appendChild(newSelectOptionText);
         inputFields.expirationDate.fieldYear.appendChild(newSelectOption);
     }
 }
@@ -96,10 +102,8 @@ inputFields.expirationDate.checkValidy = function () {
     }
 }
 
-inputFields.isInputValid = function (o) { //FIX
-    let testPattern = /^([a-zA-Z]){3,}\Z/;
-    o.isValid = testPattern.test(o.field.value);
-    console.log("pattern :" + o.pattern + "; value:" + o.field.value + "; comparison =" + testPattern.test(o.field.value));
+inputFields.isInputValid = function (o) {
+    o.isValid = o.pattern.test(o.field.value);
 }
 
 inputFields.showElementAlert = function (o) {
@@ -107,8 +111,7 @@ inputFields.showElementAlert = function (o) {
         o.alertElement.textContent = o.alertMessage;
         o.alertElement.classList.remove("invisible");
     } else {
-        o.alertElement.textContent = "OK";
-        o.alertElement.classList.remove("invisible");
+        o.alertElement.classList.add("invisible");
     }
 }
 
@@ -131,11 +134,13 @@ inputFields.confirmAllInputs = function () {
     inputFields.confirmInput(inputFields.cardNumber);
     inputFields.confirmDate();
     inputFields.confirmInput(inputFields.cardCode);
+    console.log(inputFields.cardNumber.isValid)
+    console.log(inputFields.cardNumber.pattern.test(inputFields.cardNumber.field.value))
 }
 
 
 inputFields.areAllInputsValid = function () {
-    return inputFields.familyName.isValid && inputFields.firstName.isValid && inputFields.address.isValid && inputFields.postalCode.isValid && inputFields.city.isValid && inputFields.cardNumber.isValid && inputFields.expirationDate.isValid && inputFields.cardCode.isValid;
+    return (inputFields.familyName.isValid && inputFields.firstName.isValid && inputFields.address.isValid && inputFields.postalCode.isValid && inputFields.city.isValid && inputFields.cardNumber.isValid && inputFields.expirationDate.isValid && inputFields.cardCode.isValid);
 }
 
 function purchaseCart() {
@@ -143,17 +148,7 @@ function purchaseCart() {
     if (inputFields.areAllInputsValid()) {
         form.submit();
     }
-
 }
-//test button
-function test() {
-    inputFields.isInputValid(inputFields.familyName);
-    console.log(inputFields.familyName.isValid);
-}
-
-form.addEventListener("submit", (event) => { event.preventDefault(); });
-purchaseCartButton.addEventListener("click", purchaseCart);
-
 
 /* PAGE */
 
